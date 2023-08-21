@@ -63,19 +63,20 @@
 
 ```
 
-#### 2.引入所需ip data 源文件
+#### 2.引入所需ip data 源文件（解压resources 目录下ip-data.zip即可）
+##### 2.1 引入所需ip data 源文件
 在项目 resources 目录下引入 data.sql 文件
 在项目 resources 目录下引入 IP2LOCATION-LITE-DB11.BIN 文件
 
 
-#### 3.引入所需 sql 文件
+##### 2.2 引入所需 sql 文件
 在项目 resources 目录下引入 db/schema.sql
 在项目 resources 目录下引入 db/data.sql
 
-####  4.引入所需 csv 文件
+#####  2.3 引入所需 csv 文件
 在项目 resources 目录下引入 IP2LOCATION-LITE-DB11.CSV 文件
 
-#### 5. 注入所需baseBean
+#### 3. 注入所需baseBean
 ```java
 @Data
 @ConfigurationProperties(prefix = "geo")
@@ -153,7 +154,7 @@ public class GeoLocationAutoConfiguration {
 
 ```
 
-#### 6. 新增 IP 地理定位解析入口service
+#### 4. 新增 IP 地理定位解析入口service
 ```java
 public interface IpLocationService {
 
@@ -245,7 +246,7 @@ public class Ip2LocationServiceImpl implements IpLocationService {
 
 ```
 
-#### 7. 新增底层各种ip地址库解析实现
+#### 5. 新增底层各种ip地址库解析实现
 ```java
 /**
  * @author zy
@@ -446,7 +447,7 @@ public class JdbcIp2Repository implements Ip2Repository {
 }
 ```
 
-#### 8. 测试类验证
+#### 6. 测试类验证
 ```java
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {DataSourceAutoConfiguration.class, JdbcTemplateConfig.class, GeoLocationAutoConfiguration.class})
